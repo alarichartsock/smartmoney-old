@@ -7,6 +7,7 @@ class Dash extends StatefulWidget {
 
 class _DashState extends State<Dash> {
   List<bool> _data = List<bool>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -20,6 +21,7 @@ class _DashState extends State<Dash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.green,
@@ -27,16 +29,59 @@ class _DashState extends State<Dash> {
           "moves",
           style: TextStyle(fontSize: 27.5, fontWeight: FontWeight.w700),
         ),
-        leading: Icon(
-          Icons.menu,
-          size: 35.0,
-        ),
         actions: <Widget>[
-          Icon(
-            Icons.person,
-            size: 35.0,
-          )
+          IconButton(
+            icon: new Icon(Icons.person),
+            onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+          ),
         ],
+      ),
+      drawer: new Drawer(
+          elevation: 10.0,
+          semanticLabel: "drawer1",
+          child: new ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                child: new ListTile(
+                  title: new Text("pages", style: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                ),
+              ),
+              ListTile(
+                title: new Text('moves', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                onTap: () {},
+                dense: false,
+              ),
+              new ListTile(
+                title: new Text('watchlist', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                onTap: () {},
+              ),
+              new ListTile(
+                title: new Text('about',  style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                onTap: () {},
+              ),
+            ],
+          )),
+      endDrawer: Drawer(
+        child: new ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                child: new ListTile(
+                  title: new Text("account", style: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                ),
+              ),
+              ListTile(
+                title: new Text('settings', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                onTap: () {},
+                dense: false,
+              ),
+              new ListTile(
+                title: new Text('support', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+                onTap: () {},
+              ),
+            ],
+          )
       ),
       body: ListView.builder(
           itemCount: _data.length,
