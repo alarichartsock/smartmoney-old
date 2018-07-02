@@ -6,18 +6,16 @@ class Dash extends StatefulWidget {
 }
 
 class _DashState extends State<Dash> {
-
   List<bool> _data = List<bool>();
 
   @override
   void initState() {
     setState(() {
-          for (int i = 0; i < 10; i++) {
-            _data.add(false);
-          }
-        });
+      for (int i = 0; i < 10; i++) {
+        _data.add(false);
+      }
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +38,18 @@ class _DashState extends State<Dash> {
           )
         ],
       ),
-      body: 
-        ListView.builder(
+      body: ListView.builder(
           itemCount: _data.length,
-          itemBuilder: (BuildContext context, int index){
+          itemBuilder: (BuildContext context, int index) {
             return Card(
               child: Container(
-                padding: EdgeInsets.all(32.0),
-                child: Text("$index: 7.9 M 7/29 APPL 100.5 Call", style: TextStyle(fontSize: 20.0),)
-              ),
+                  padding: EdgeInsets.all(32.0),
+                  child: Text(
+                    "$index: 7.9 M 7/29 APPL 100.5 Call",
+                    style: TextStyle(fontSize: 20.0),
+                  )),
             );
-          }
-        ),
+          }),
     );
   }
 }
