@@ -25,6 +25,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/images/fake_chart_1.jpg
+    - assets/images/fake_chart_2.jpg
+    - assets/images/fake_chart_3.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

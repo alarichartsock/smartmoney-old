@@ -6,95 +6,261 @@ class Dash extends StatefulWidget {
 }
 
 class _DashState extends State<Dash> {
-  List<bool> _data = List<bool>();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    setState(() {
-      for (int i = 0; i < 10; i++) {
-        _data.add(false);
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.green,
-        title: Text(
-          "moves",
-          style: TextStyle(fontSize: 27.5, fontWeight: FontWeight.w700),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: new Icon(Icons.person),
-            onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+    return Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [const Color(0xFFffffff), const Color(0xFFdfe9f3)])),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            title: Text(
+              "moves",
+              style: TextStyle(
+                  fontSize: 27.5,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black),
+            ),
+            leading: IconButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+              onPressed: () {},
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+              )
+            ],
           ),
-        ],
-      ),
-      drawer: new Drawer(
-          elevation: 10.0,
-          semanticLabel: "drawer1",
-          child: new ListView(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
-                child: new ListTile(
-                  title: new Text("pages", style: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+          body: ListView(
+            children: [
+              Card(
+                elevation: 10.0,
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/fake_chart_1.jpg',
+                      width: double.infinity,
+                      height: 160.0,
+                      fit: BoxFit.cover,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.attach_money,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 2.5),
+                                child: Text(
+                                  r"FB 150$ Put",
+                                  style: TextStyle(
+                                      fontSize: 28.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 5.0),
+                                child: Text(
+                                  "7.2M @11:20AM PST, 7/20 exp",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(40.0, 10.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              //size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
-              ListTile(
-                title: new Text('moves', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                onTap: () {},
-                dense: false,
-              ),
-              new ListTile(
-                title: new Text('watchlist', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                onTap: () {},
-              ),
-              new ListTile(
-                title: new Text('about',  style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                onTap: () {},
-              ),
-            ],
-          )),
-      endDrawer: Drawer(
-        child: new ListView(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
-                child: new ListTile(
-                  title: new Text("account", style: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
+              Card(
+                elevation: 10.0,
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/fake_chart_2.jpg',
+                      width: double.infinity,
+                      height: 160.0,
+                      fit: BoxFit.cover,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.attach_money,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 2.5),
+                                child: Text(
+                                  r"MU 50$ Put",
+                                  style: TextStyle(
+                                      fontSize: 28.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 5.0),
+                                child: Text(
+                                  "3.2M @2:40PM PST, 9/40 exp",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(40.0, 10.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              //size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
-              ListTile(
-                title: new Text('settings', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                onTap: () {},
-                dense: false,
-              ),
-              new ListTile(
-                title: new Text('support', style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                onTap: () {},
+              Card(
+                elevation: 10.0,
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/fake_chart_3.jpg',
+                      width: double.infinity,
+                      height: 160.0,
+                      fit: BoxFit.cover,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.attach_money,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 2.5),
+                                child: Text(
+                                  r"IQ 150$ Call",
+                                  style: TextStyle(
+                                      fontSize: 28.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                            Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 5.0),
+                                child: Text(
+                                  "7.2M @9:20AM PST, 7/15 exp",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(40.0, 10.0, 0.0, 10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius:
+                                  BorderRadius.all(const Radius.circular(15.0)),
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              //size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ],
-          )
-      ),
-      body: ListView.builder(
-          itemCount: _data.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: Container(
-                  padding: EdgeInsets.all(32.0),
-                  child: Text(
-                    "$index: 7.9 M 7/29 APPL 100.5 Call",
-                    style: TextStyle(fontSize: 20.0),
-                  )),
-            );
-          }),
-    );
+          ),
+        ));
   }
 }
