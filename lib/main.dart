@@ -4,8 +4,7 @@ import 'dash.dart';
 void main() {
   runApp(
     new MaterialApp(
-      home: Dash(),
-      title: "Hello",
-    )
-  );
+    home: Dash(),
+    title: "Hello",
+  ));
 }
