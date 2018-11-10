@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'zoom_scaffold.dart';
+import 'package:flutter/animation.dart';
 
 final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
 
@@ -16,7 +17,7 @@ class MenuScreen extends StatefulWidget {
   _MenuScreenState createState() => _MenuScreenState();
 }
 
-class _MenuScreenState extends State<MenuScreen> with TickerProviderStateMixin {
+class _MenuScreenState extends State<MenuScreen> with SingleTickerProviderStateMixin {
 
   AnimationController titleAnimationController;
   RenderBox _selectedRenderBox;

@@ -171,7 +171,7 @@ class _AnimateExpandedState extends State<AnimateExpanded>
   double _bodyHeight = 0.0;
   bool isOpen = false;
 
-  AnimationController _rotateController;
+  AnimationController _rotateController; //rotation for icon
 
   @override
   void initState() {
@@ -194,7 +194,7 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   RotationTransition(
-                    turns: _rotateController,
+                    turns: _rotateController, 
                     child: IconButton(
                       icon: Icon(Icons.keyboard_arrow_down),
                       onPressed: () {
@@ -294,9 +294,9 @@ final Screen watchlist = new Screen(
   contentBuilder: (BuildContext context) {
     return ListView(
       children: <Widget>[
-        AnimateExpanded(),
-        AnimateExpanded(),
-        AnimateExpanded(),
+        //AnimateExpanded(),
+        //AnimateExpanded(),
+        //AnimateExpanded(),
       ],
     );
   },
@@ -313,9 +313,9 @@ final Screen insidermoves = new Screen(
   contentBuilder: (BuildContext context) {
     return ListView(
       children: <Widget>[
-        AnimateExpanded(),
-        AnimateExpanded(),
-        AnimateExpanded(),
+        // AnimateExpanded(),
+        // AnimateExpanded(),
+        // AnimateExpanded(),
       ],
     );
   },

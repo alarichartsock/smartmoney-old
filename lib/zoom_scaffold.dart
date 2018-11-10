@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens.dart';
 
+//this file defines the animations to zoom between the contentscreen and the menuscreen.
+
 class ZoomScaffold extends StatefulWidget {
   final Widget menuScreen;
   final Screen contentScreen;
@@ -14,7 +16,7 @@ class ZoomScaffold extends StatefulWidget {
 class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
   MenuController menuController;
-  Curve scaleDownCurve = Interval(0.0, 0.3, curve: Curves.easeOut);
+  Curve scaleDownCurve = Interval(0.0, 0.3, curve: Curves.easeOut); //defining animations
   Curve scaleUpCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
   Curve slideOutCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
   Curve slideInCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
@@ -22,7 +24,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   @override
   void initState() {
     super.initState();
-
     menuController = new MenuController(
       vsync: this,
     )..addListener(() => setState(() {}));
@@ -31,7 +32,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   @override
   void dispose() {
     menuController.dispose();
-
     super.dispose();
   }
 
