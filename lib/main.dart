@@ -17,7 +17,7 @@ class Dash extends StatefulWidget {
 }
 
 class _DashState extends State<Dash> {
-  var activeScreen = moves;
+  var activeScreen = moves; //starts on first screen by default
   var selectedMenuId = '1';
 
   final menu = Menu(items: [ //main menu on the left

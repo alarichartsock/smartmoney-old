@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
+
+import 'package:flutter/animation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
 
 class AnimateExpanded extends StatefulWidget {
   final String companyName;
@@ -21,19 +26,29 @@ class AnimateExpanded extends StatefulWidget {
 }
 
 class _AnimateExpandedState extends State<AnimateExpanded>
-    with SingleTickerProviderStateMixin {
-
+    with TickerProviderStateMixin {
   double _bodyHeight = 0.0;
   bool isOpen = false;
 
-  AnimationController _rotateController; //rotation for icon
+  Animation<double> _rotateAnimation;
+  AnimationController _rotateController;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _rotateController = AnimationController(
-        value: 1.0, lowerBound: 0.0, upperBound: 1.0, vsync: this, duration: Duration(milliseconds: 100));
+      duration: const Duration(milliseconds: 250),
+      vsync: this,
+    );
+    _rotateAnimation = Tween(begin: 0.0, end: 100.0).animate(
+      CurvedAnimation(parent: _rotateController, curve: Curves.easeIn),
+    );
+  }
+
+  @override
+  void dispose() {
+    _rotateController.dispose();
+    super.dispose();
   }
 
   @override
@@ -48,25 +63,34 @@ class _AnimateExpandedState extends State<AnimateExpanded>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  RotationTransition(
-                    turns: _rotateController, 
-                    child: IconButton(
-                      icon: Icon(Icons.keyboard_arrow_down),
-                      onPressed: () {
-                        //_rotateController.forward();
-                        setState(() {
-                          if (isOpen == false) {
-                            isOpen = true;
-                            this._bodyHeight = 300.0;
-                            _rotateController.forward();
-                          } else {
-                            isOpen = false;
-                            this._bodyHeight = 0.0;
-                          }
-                        });
-                      },
-                    ),
-                  ),
+                  AnimatedBuilder(
+                      animation: _rotateAnimation,
+                      builder: (context, child) {
+                        return Transform.rotate(
+                          angle: _rotateController.value * 1.0 * math.pi,
+                          child: IconButton(
+                            icon: Icon(Icons.keyboard_arrow_down),
+                            onPressed: () {
+                              setState(() {
+                                if (_rotateController.status ==
+                                    AnimationStatus.completed) {
+                                  _rotateController.reverse();
+                                } else if (_rotateController.status ==
+                                    AnimationStatus.dismissed) {
+                                  _rotateController.forward();
+                                }
+                                if (isOpen == false) {
+                                  isOpen = true;
+                                  this._bodyHeight = 300.0;
+                                } else {
+                                  isOpen = false;
+                                  this._bodyHeight = 0.0;
+                                }
+                              });
+                            },
+                          ),
+                        );
+                      }),
                 ],
               ),
             ),
@@ -82,6 +106,11 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                     onPressed: () {
                       setState(() {
                         this._bodyHeight = 0.0;
+                        isOpen = false;
+                        if (_rotateController.status ==
+                            AnimationStatus.completed) {
+                          _rotateController.reverse();
+                        }
                       });
                     },
                   ),
