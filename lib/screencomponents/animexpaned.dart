@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
 
 class AnimateExpanded extends StatefulWidget {
   final String companyName;
@@ -72,12 +71,20 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                             icon: Icon(Icons.keyboard_arrow_down),
                             onPressed: () {
                               setState(() {
-                                if (_rotateController.status ==
-                                    AnimationStatus.completed) {
-                                  _rotateController.reverse();
-                                } else if (_rotateController.status ==
-                                    AnimationStatus.dismissed) {
-                                  _rotateController.forward();
+                                switch (_rotateController.status) {
+                                  //switch case needed so that the user can't break the animation by tapping on it very fast.
+                                  case AnimationStatus.forward:
+                                    _rotateController.reverse();
+                                    break;
+                                  case AnimationStatus.reverse:
+                                    _rotateController.forward();
+                                    break;
+                                  case AnimationStatus.dismissed:
+                                    _rotateController.forward();
+                                    break;
+                                  case AnimationStatus.completed:
+                                    _rotateController.reverse();
+                                    break;
                                 }
                                 if (isOpen == false) {
                                   isOpen = true;
@@ -107,9 +114,19 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                       setState(() {
                         this._bodyHeight = 0.0;
                         isOpen = false;
-                        if (_rotateController.status ==
-                            AnimationStatus.completed) {
-                          _rotateController.reverse();
+                        switch (_rotateController.status) {
+                          case AnimationStatus.forward:
+                            _rotateController.reverse();
+                            break;
+                          case AnimationStatus.reverse:
+                            _rotateController.forward();
+                            break;
+                          case AnimationStatus.dismissed:
+                            _rotateController.forward();
+                            break;
+                          case AnimationStatus.completed:
+                            _rotateController.reverse();
+                            break;
                         }
                       });
                     },
