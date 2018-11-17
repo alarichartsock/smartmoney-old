@@ -1,41 +1,34 @@
 import 'package:flutter/material.dart';
 import 'screencomponents/animexpaned.dart';
 import 'screencomponents/accountscreen.dart';
+import 'screencomponents/searchbar.dart';
 
 class Screen {
   final String title;
   final WidgetBuilder contentBuilder;
   final IconButton iconButton;
 
-  Screen({this.title, this.contentBuilder, this.iconButton,});
+  Screen({
+    this.title,
+    this.contentBuilder,
+    this.iconButton,
+  });
 }
 
-final Screen moves = new Screen( //this information is currently unused
+final Screen moves = new Screen(
+  //this information is currently unused
   title: "moves",
   contentBuilder: (BuildContext context) {
-    return ListView(
+    return Stack(
       children: <Widget>[
-        AnimateExpanded(
-            companyName: 'apple inc',
-            ticker: 'APPL',
-            purchaseSize: '20.0M',
-            strikePrice: '200.0',
-            expiration: '7/26',
-            placementDate: '5/25'),
-        AnimateExpanded(
-            companyName: 'apple inc',
-            ticker: 'APPL',
-            purchaseSize: '20.0M',
-            strikePrice: '200.0',
-            expiration: '7/26',
-            placementDate: '5/25'),
-        AnimateExpanded(
-            companyName: 'apple inc',
-            ticker: 'APPL',
-            purchaseSize: '20.0M',
-            strikePrice: '200.0',
-            expiration: '7/26',
-            placementDate: '5/25'),
+        ListView(
+          children: <Widget>[
+            AnimateExpanded(),
+            AnimateExpanded(),
+            AnimateExpanded(),
+          ],
+        ),
+        SearchBar()
       ],
     );
   },
@@ -43,7 +36,7 @@ final Screen moves = new Screen( //this information is currently unused
     icon: Icon(Icons.search),
     color: Colors.black,
     iconSize: 25.0,
-    onPressed: ()  {
+    onPressed: () {
       print("search pressed");
     },
   ),
@@ -66,7 +59,7 @@ final Screen watchlist = new Screen(
     icon: Icon(Icons.add),
     iconSize: 25.0,
     color: Colors.black,
-    onPressed: ()  {
+    onPressed: () {
       print("add pressed");
     },
   ),
@@ -89,7 +82,7 @@ final Screen insidermoves = new Screen(
     iconSize: 25.0,
     color: Colors.black,
     icon: Icon(Icons.search),
-    onPressed: ()  {
+    onPressed: () {
       print("search pressed");
     },
   ),
@@ -98,16 +91,16 @@ final Screen insidermoves = new Screen(
 //account
 
 final Screen account = new Screen(
-    title: "account",
-    contentBuilder: (BuildContext context) {
-      return AccountScreen();
-    },
-    iconButton: IconButton(
-      iconSize: 25.0,
-      color: Colors.black,
+  title: "account",
+  contentBuilder: (BuildContext context) {
+    return AccountScreen();
+  },
+  iconButton: IconButton(
+    iconSize: 25.0,
+    color: Colors.black,
     icon: Icon(Icons.person),
-    onPressed: ()  {
+    onPressed: () {
       print("person pressed");
     },
   ),
-    );
+);
