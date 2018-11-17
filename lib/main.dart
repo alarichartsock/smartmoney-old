@@ -8,6 +8,7 @@ void main() {
     new MaterialApp(
     home: Dash(), //entry function
     title: "Hello",
+    debugShowCheckedModeBanner: false,
   ));
 }
 

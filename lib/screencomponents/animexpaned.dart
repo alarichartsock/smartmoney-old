@@ -40,7 +40,7 @@ class _AnimateExpandedState extends State<AnimateExpanded>
       vsync: this,
     );
     _rotateAnimation = Tween(begin: 0.0, end: 100.0).animate(
-      CurvedAnimation(parent: _rotateController, curve: Curves.easeIn),
+      CurvedAnimation(parent: _rotateController, curve: Curves.decelerate),
     );
   }
 

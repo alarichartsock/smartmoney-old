@@ -5,9 +5,9 @@ import 'screencomponents/accountscreen.dart';
 class Screen {
   final String title;
   final WidgetBuilder contentBuilder;
-  final Icon icon;
+  final IconButton iconButton;
 
-  Screen({this.title, this.contentBuilder, this.icon});
+  Screen({this.title, this.contentBuilder, this.iconButton,});
 }
 
 final Screen moves = new Screen( //this information is currently unused
@@ -39,9 +39,13 @@ final Screen moves = new Screen( //this information is currently unused
       ],
     );
   },
-  icon: Icon(
-    Icons.search,
+  iconButton: IconButton(
+    icon: Icon(Icons.search),
     color: Colors.black,
+    iconSize: 25.0,
+    onPressed: ()  {
+      print("search pressed");
+    },
   ),
 );
 
@@ -58,9 +62,13 @@ final Screen watchlist = new Screen(
       ],
     );
   },
-  icon: Icon(
-    Icons.add,
+  iconButton: IconButton(
+    icon: Icon(Icons.add),
+    iconSize: 25.0,
     color: Colors.black,
+    onPressed: ()  {
+      print("add pressed");
+    },
   ),
 );
 
@@ -77,9 +85,13 @@ final Screen insidermoves = new Screen(
       ],
     );
   },
-  icon: Icon(
-    Icons.search,
+  iconButton: IconButton(
+    iconSize: 25.0,
     color: Colors.black,
+    icon: Icon(Icons.search),
+    onPressed: ()  {
+      print("search pressed");
+    },
   ),
 );
 
@@ -90,7 +102,12 @@ final Screen account = new Screen(
     contentBuilder: (BuildContext context) {
       return AccountScreen();
     },
-    icon: Icon(
-      Icons.person,
+    iconButton: IconButton(
+      iconSize: 25.0,
       color: Colors.black,
-    ));
+    icon: Icon(Icons.person),
+    onPressed: ()  {
+      print("person pressed");
+    },
+  ),
+    );
