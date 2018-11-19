@@ -28,7 +28,6 @@ final Screen moves = new Screen(
             AnimateExpanded(),
           ],
         ),
-        SearchBar()
       ],
     );
   },
@@ -104,3 +103,4 @@ final Screen account = new Screen(
     },
   ),
 );
+

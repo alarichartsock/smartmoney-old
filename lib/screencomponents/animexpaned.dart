@@ -36,7 +36,7 @@ class _AnimateExpandedState extends State<AnimateExpanded>
   void initState() {
     super.initState();
     _rotateController = AnimationController(
-      duration: const Duration(milliseconds: 250),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _rotateAnimation = Tween(begin: 0.0, end: 100.0).animate(

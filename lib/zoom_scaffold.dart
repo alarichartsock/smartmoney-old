@@ -15,7 +15,6 @@ class ZoomScaffold extends StatefulWidget {
 
 class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
-
   MenuController menuController;
   Curve scaleDownCurve =
       Interval(0.0, 0.3, curve: Curves.easeOut); //defining animations
@@ -66,9 +65,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
               menuController.toggle();
             },
           ),
-          actions: <Widget>[
-            widget.contentScreen.iconButton
-          ],
+          actions: <Widget>[widget.contentScreen.iconButton],
         ),
         body: widget.contentScreen.contentBuilder(context),
       ),
@@ -244,3 +241,4 @@ class MenuController extends ChangeNotifier {
 }
 
 enum MenuState { closed, open, closing, opening }
+
