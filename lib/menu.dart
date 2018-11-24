@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'zoom_scaffold.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
 
 class MenuScreen extends StatefulWidget {
-
   final Menu menu;
   final String selectedItemId;
   final Function(String) onMenuItemSelected;
@@ -17,8 +17,8 @@ class MenuScreen extends StatefulWidget {
   _MenuScreenState createState() => _MenuScreenState();
 }
 
-class _MenuScreenState extends State<MenuScreen> with SingleTickerProviderStateMixin {
-
+class _MenuScreenState extends State<MenuScreen>
+    with SingleTickerProviderStateMixin {
   AnimationController titleAnimationController;
   RenderBox _selectedRenderBox;
   double selectorYTop = 250.0;
@@ -51,7 +51,6 @@ class _MenuScreenState extends State<MenuScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-
     return ZoomScaffoldMenuController(
         builder: (BuildContext context, MenuController menuController) {
       var actualSelectorYTop = selectorYTop;

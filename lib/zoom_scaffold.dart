@@ -15,6 +15,9 @@ class ZoomScaffold extends StatefulWidget {
 
 class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
+  Widget title;
+  Icon searchIcon = Icon(Icons.search);
+  bool isOpen = false;
   MenuController menuController;
   Curve scaleDownCurve =
       Interval(0.0, 0.3, curve: Curves.easeOut); //defining animations
@@ -36,6 +39,71 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     super.dispose();
   }
 
+  searchPressed() {
+    setState(() {
+      if (searchIcon.icon == Icons.search) {
+        searchIcon = new Icon(Icons.close);
+        isOpen = true;
+        title = TextField();
+      } else {
+        searchIcon = new Icon(Icons.search);
+        isOpen = false;
+        title = Text(
+          widget.contentScreen.title,
+          style: TextStyle(
+              fontSize: 27.5, color: Colors.black, fontWeight: FontWeight.w500),
+        );
+      }
+    });
+  }
+
+  searchIconButton() {
+    return IconButton(
+      icon: searchIcon,
+      color: Colors.black,
+      iconSize: 25.0,
+      onPressed: () {
+        searchPressed();
+      },
+    );
+  }
+
+  addIconButton() {
+    return IconButton(
+      icon: Icon(Icons.add),
+      color: Colors.black,
+      iconSize: 25.0,
+      onPressed: () {
+        print("Add Pressed");
+      },
+    );
+  }
+
+  accountIconButton() {
+    return IconButton(
+      icon: Icon(Icons.person),
+      color: Colors.black,
+      iconSize: 25.0,
+      onPressed: () {
+        print("Account Pressed.");
+      },
+    );
+  }
+
+  buttonType(String type) {
+    if (type == "search") {
+      return searchIconButton();
+    }
+    if (type == "add") {
+      return addIconButton();
+    }
+    if (type == "account") {
+      return accountIconButton();
+    } else {
+      return null;
+    }
+  }
+
   createContentDisplay() {
     return Container(
       decoration: BoxDecoration(
@@ -49,13 +117,13 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: Text(
-            widget.contentScreen.title,
-            style: TextStyle(
-                fontSize: 27.5,
-                fontWeight: FontWeight.w500,
-                color: Colors.black),
-          ),
+          title: (isOpen == false)
+              ? Text(widget.contentScreen.title,
+                  style: TextStyle(
+                      fontSize: 27.5,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black))
+              : title,
           leading: IconButton(
             icon: Icon(
               Icons.menu,
@@ -63,9 +131,19 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
             ),
             onPressed: () {
               menuController.toggle();
+              if (isOpen == true) {
+                isOpen = false;
+                searchIcon = new Icon(Icons.search);
+                isOpen = false;
+                title = Text(widget.contentScreen.title,
+                    style: TextStyle(
+                        fontSize: 27.5,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500));
+              }
             },
           ),
-          actions: <Widget>[widget.contentScreen.iconButton],
+          actions: <Widget>[buttonType(widget.contentScreen.icon)],
         ),
         body: widget.contentScreen.contentBuilder(context),
       ),
@@ -241,4 +319,3 @@ class MenuController extends ChangeNotifier {
 }
 
 enum MenuState { closed, open, closing, opening }
-
