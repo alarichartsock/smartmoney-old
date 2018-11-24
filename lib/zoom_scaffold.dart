@@ -17,7 +17,9 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
   Widget title;
   Icon searchIcon = Icon(Icons.search);
-  bool isOpen = false;
+  Icon addIcon = Icon(Icons.add);
+  bool searchIsOpen = false;
+  bool addIsOpen = false;
   MenuController menuController;
   Curve scaleDownCurve =
       Interval(0.0, 0.3, curve: Curves.easeOut); //defining animations
@@ -42,12 +44,34 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   searchPressed() {
     setState(() {
       if (searchIcon.icon == Icons.search) {
-        searchIcon = new Icon(Icons.close);
-        isOpen = true;
+        searchIcon = Icon(Icons.close);
+        searchIsOpen = true;
+        title = new TextField();
+        print("open = true");
+      } else {
+        searchIcon = Icon(Icons.search);
+        searchIsOpen = false;
+        print("open = false");
+        title = Text(
+          widget.contentScreen.title,
+          style: TextStyle(
+              fontSize: 27.5, color: Colors.black, fontWeight: FontWeight.w500),
+        );
+      }
+    });
+  }
+
+  addPressed() {
+    setState(() {
+      if (addIcon.icon == Icons.add) {
+        addIcon = Icon(Icons.done);
+        addIsOpen = true;
+        print("open = true");
         title = TextField();
       } else {
-        searchIcon = new Icon(Icons.search);
-        isOpen = false;
+        addIcon = Icon(Icons.add);
+        addIsOpen = true;
+        print("open = false");
         title = Text(
           widget.contentScreen.title,
           style: TextStyle(
@@ -70,11 +94,11 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
 
   addIconButton() {
     return IconButton(
-      icon: Icon(Icons.add),
+      icon: addIcon,
       color: Colors.black,
       iconSize: 25.0,
       onPressed: () {
-        print("Add Pressed");
+        addPressed();
       },
     );
   }
@@ -117,7 +141,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: (isOpen == false)
+          title: (searchIsOpen == false) && (addIsOpen == false)
               ? Text(widget.contentScreen.title,
                   style: TextStyle(
                       fontSize: 27.5,
@@ -131,16 +155,17 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
             ),
             onPressed: () {
               menuController.toggle();
-              if (isOpen == true) {
-                isOpen = false;
-                searchIcon = new Icon(Icons.search);
-                isOpen = false;
+              setState(() {
                 title = Text(widget.contentScreen.title,
                     style: TextStyle(
                         fontSize: 27.5,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500));
-              }
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black));
+                searchIsOpen = false;
+                addIsOpen = false;
+                addIcon = Icon(Icons.add);
+                searchIcon = Icon(Icons.search);
+              });
             },
           ),
           actions: <Widget>[buttonType(widget.contentScreen.icon)],
