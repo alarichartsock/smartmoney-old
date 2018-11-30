@@ -1,6 +1,3 @@
-import 'dart:math' as math;
-
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -9,142 +6,78 @@ class AccountScreen extends StatefulWidget {
   _AccountScreenState createState() => _AccountScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> with TickerProviderStateMixin {
+class _AccountScreenState extends State<AccountScreen>
+    with TickerProviderStateMixin {
+
+  TextStyle titleStyle(){
+    return TextStyle(
+      fontSize: 19.0,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 1.5,
+      color: Colors.black,
+      wordSpacing: 0.5,
+    );
+  }
+  
+  TextStyle middleStyle() {
+    return TextStyle(
+      fontSize: 14.5,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 1.0,
+      color: Colors.black,
+      wordSpacing: 0.5,
+      
+      //height: 10.0
+    );
+  }
+
+  Widget settingscard(IconData iconType, String cardInfo, String userInfo) {
+    return Card(
+        child: Container(
+      height: 75.0,
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+            child: Icon(
+              iconType,
+              size: 32.0,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              cardInfo,
+              style: titleStyle(),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
+            child: Text(
+              userInfo,
+              style: middleStyle(),
+            ),
+          )
+        ],
+      ),
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
-    TextStyle middle() {
-      return new TextStyle(
-        fontSize: 17.5,
-        fontWeight: FontWeight.w400,
-        letterSpacing: 2.0,
-        color: Colors.black,
-        //height: 10.0
-      );
-    }
-
-    final String firstName = 'alaric';
-    final String lastName = 'hartsock';
-    final String email = 'alaric.hartsock@yahoo.com';
-    final String password = '*******';
-    final String timeSpent = '5';
-    final bool isPremium = true;
-
-    return Padding(
-      padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-      child: Container(
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.white,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Icon(
-                  Icons.person,
-                  size: 50.0,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "$firstName $lastName",
-                      style: middle(),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20.0,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "$email",
-                      style: middle(),
-                    ),
-                    Container(
-                      height: 20.0,
-                      width: 20.0,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.edit,
-                          size: 20.0,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "password: $password",
-                      style: middle(),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20.0,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "bill to visa ending in 0011",
-                      style: middle(),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20.0,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "thank you for choosing premium",
-                      style: middle(),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    return ListView(
+      children: <Widget>[
+        settingscard(Icons.person, "account", "alaric.hartsock@yahoo.com"),
+        settingscard(Icons.notifications_active, "notifications", "all"),
+        settingscard(Icons.attach_money, "payment", "ending in 0011"),
+        settingscard(Icons.lightbulb_outline, "day/night", "day"),
+        settingscard(Icons.security, "legal", "read TOS"),
+        settingscard(Icons.help_outline, "help", "questions?"),
+        
+      ],
     );
+    
+    
   }
 }

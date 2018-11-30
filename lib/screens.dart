@@ -61,10 +61,10 @@ final Screen insidermoves = new Screen(
 
 //account
 
-final Screen account = new Screen(
-  title: "account",
+final Screen settings = new Screen(
+  title: "settings",
   contentBuilder: (BuildContext context) {
     return AccountScreen();
   },
-  icon: "account",
+  icon: null,
 );

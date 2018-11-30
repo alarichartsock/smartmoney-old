@@ -47,16 +47,10 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
         searchIcon = Icon(Icons.close);
         searchIsOpen = true;
         title = new TextField();
-        print("open = true");
       } else {
         searchIcon = Icon(Icons.search);
         searchIsOpen = false;
-        print("open = false");
-        title = Text(
-          widget.contentScreen.title,
-          style: TextStyle(
-              fontSize: 27.5, color: Colors.black, fontWeight: FontWeight.w500),
-        );
+        title = titleStyle(widget.contentScreen.title);
       }
     });
   }
@@ -66,17 +60,11 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
       if (addIcon.icon == Icons.add) {
         addIcon = Icon(Icons.done);
         addIsOpen = true;
-        print("open = true");
         title = TextField();
       } else {
         addIcon = Icon(Icons.add);
         addIsOpen = true;
-        print("open = false");
-        title = Text(
-          widget.contentScreen.title,
-          style: TextStyle(
-              fontSize: 27.5, color: Colors.black, fontWeight: FontWeight.w500),
-        );
+        title = titleStyle(widget.contentScreen.title);
       }
     });
   }
@@ -128,6 +116,16 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     }
   }
 
+  titleStyle(String name) {
+    return Text(name,
+        style: TextStyle(
+            fontSize: 27.5, color: Colors.black, fontWeight: FontWeight.w500));
+  }
+
+  returnNothing() {
+    return;
+  }
+
   createContentDisplay() {
     return Container(
       decoration: BoxDecoration(
@@ -142,11 +140,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           title: (searchIsOpen == false) && (addIsOpen == false)
-              ? Text(widget.contentScreen.title,
-                  style: TextStyle(
-                      fontSize: 27.5,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black))
+              ? titleStyle(widget.contentScreen.title)
               : title,
           leading: IconButton(
             icon: Icon(
@@ -156,19 +150,20 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
             onPressed: () {
               menuController.toggle();
               setState(() {
-                title = Text(widget.contentScreen.title,
-                    style: TextStyle(
-                        fontSize: 27.5,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black));
+                title = titleStyle(widget.contentScreen.title);
                 searchIsOpen = false;
                 addIsOpen = false;
                 addIcon = Icon(Icons.add);
                 searchIcon = Icon(Icons.search);
               });
             },
+            // buttonType(widget.contentScreen.icon)
           ),
-          actions: <Widget>[buttonType(widget.contentScreen.icon)],
+          actions: <Widget>[
+            (widget.contentScreen.icon == null)
+            ? Icon(Icons.add, size: 0.0)
+            : buttonType(widget.contentScreen.icon)
+          ],
         ),
         body: widget.contentScreen.contentBuilder(context),
       ),

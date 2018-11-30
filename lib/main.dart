@@ -18,14 +18,14 @@ class Dash extends StatefulWidget {
 }
 
 class _DashState extends State<Dash> {
-  var activeScreen = moves; //starts on first screen by default
-  var selectedMenuId = '1';
+  var activeScreen = settings; //starts on first screen by default
+  var selectedMenuId = '4';
 
   final menu = Menu(items: [ //main menu on the left
     MenuItem(id: '1', title: 'moves'), 
     MenuItem(id: '2', title: 'watchlist'),
     MenuItem(id: '3', title: 'insiders'),
-    MenuItem(id: '4', title: 'account')
+    MenuItem(id: '4', title: 'settings')
   ]);
 
   @override
@@ -43,7 +43,7 @@ class _DashState extends State<Dash> {
           } else if (itemId == '3') {
             setState(() => activeScreen = insidermoves);
           } else if (itemId == '4') {
-            setState(() => activeScreen = account);
+            setState(() => activeScreen = settings);
           }
         },
       ),

@@ -50,6 +50,38 @@ class _AnimateExpandedState extends State<AnimateExpanded>
     super.dispose();
   }
 
+  topButton() {
+    return IconButton(
+      icon: Icon(Icons.keyboard_arrow_down),
+      onPressed: () {
+        setState(() {
+          switch (_rotateController.status) {
+            //switch case needed so that the user can't break the animation by tapping on it very fast.
+            case AnimationStatus.forward:
+              _rotateController.reverse();
+              break;
+            case AnimationStatus.reverse:
+              _rotateController.forward();
+              break;
+            case AnimationStatus.dismissed:
+              _rotateController.forward();
+              break;
+            case AnimationStatus.completed:
+              _rotateController.reverse();
+              break;
+          }
+          if (isOpen == false) {
+            isOpen = true;
+            _bodyHeight = 300.0;
+          } else {
+            isOpen = false;
+            _bodyHeight = 0.0;
+          }
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -57,45 +89,18 @@ class _AnimateExpandedState extends State<AnimateExpanded>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Card(
+            elevation: 5.0,
             child: Container(
               height: 75.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  AnimatedBuilder(
+                  AnimatedBuilder( // rotates the top icon
                       animation: _rotateAnimation,
                       builder: (context, child) {
                         return Transform.rotate(
                           angle: _rotateController.value * 1.0 * math.pi,
-                          child: IconButton(
-                            icon: Icon(Icons.keyboard_arrow_down),
-                            onPressed: () {
-                              setState(() {
-                                switch (_rotateController.status) {
-                                  //switch case needed so that the user can't break the animation by tapping on it very fast.
-                                  case AnimationStatus.forward:
-                                    _rotateController.reverse();
-                                    break;
-                                  case AnimationStatus.reverse:
-                                    _rotateController.forward();
-                                    break;
-                                  case AnimationStatus.dismissed:
-                                    _rotateController.forward();
-                                    break;
-                                  case AnimationStatus.completed:
-                                    _rotateController.reverse();
-                                    break;
-                                }
-                                if (isOpen == false) {
-                                  isOpen = true;
-                                  this._bodyHeight = 300.0;
-                                } else {
-                                  isOpen = false;
-                                  this._bodyHeight = 0.0;
-                                }
-                              });
-                            },
-                          ),
+                          child: topButton(),
                         );
                       }),
                 ],
@@ -108,11 +113,11 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  IconButton(
+                  IconButton( //rotates the bottom icon
                     icon: Icon(Icons.keyboard_arrow_up),
                     onPressed: () {
                       setState(() {
-                        this._bodyHeight = 0.0;
+                        _bodyHeight = 0.0;
                         isOpen = false;
                         switch (_rotateController.status) {
                           case AnimationStatus.forward:
@@ -127,6 +132,7 @@ class _AnimateExpandedState extends State<AnimateExpanded>
                           case AnimationStatus.completed:
                             _rotateController.reverse();
                             break;
+                          
                         }
                       });
                     },
