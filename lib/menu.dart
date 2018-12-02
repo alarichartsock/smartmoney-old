@@ -116,7 +116,7 @@ class _MenuScreenState extends State<MenuScreen>
           child: Padding(
             padding: EdgeInsets.all(30.0),
             child: Text(
-              'menu',
+              'moves',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 50.0,

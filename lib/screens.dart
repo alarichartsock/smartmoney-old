@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screencomponents/animexpaned.dart';
+import 'screencomponents/expandedcard.dart';
 import 'screencomponents/accountscreen.dart';
 
 class Screen {
@@ -14,8 +14,8 @@ class Screen {
   });
 }
 
-final Screen moves = new Screen(
-  title: "moves",
+final Screen featured = new Screen(
+  title: "featured",
   contentBuilder: (BuildContext context) {
     return ListView(
       children: <Widget>[

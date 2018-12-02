@@ -22,7 +22,7 @@ class _DashState extends State<Dash> {
   var selectedMenuId = '4';
 
   final menu = Menu(items: [ //main menu on the left
-    MenuItem(id: '1', title: 'moves'), 
+    MenuItem(id: '1', title: 'featured'), 
     MenuItem(id: '2', title: 'watchlist'),
     MenuItem(id: '3', title: 'insiders'),
     MenuItem(id: '4', title: 'settings')
@@ -37,7 +37,7 @@ class _DashState extends State<Dash> {
         onMenuItemSelected: (String itemId) {
           selectedMenuId = itemId;
           if (itemId == '1') {
-            setState(() => activeScreen = moves);
+            setState(() => activeScreen = featured);
           } else if (itemId == '2') {
             setState(() => activeScreen = watchlist);
           } else if (itemId == '3') {
