@@ -8,8 +8,7 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen>
     with TickerProviderStateMixin {
-
-  TextStyle titleStyle(){
+  TextStyle titleStyle() {
     return TextStyle(
       fontSize: 19.0,
       fontWeight: FontWeight.w500,
@@ -18,7 +17,7 @@ class _AccountScreenState extends State<AccountScreen>
       wordSpacing: 0.5,
     );
   }
-  
+
   TextStyle middleStyle() {
     return TextStyle(
       fontSize: 14.5,
@@ -26,8 +25,6 @@ class _AccountScreenState extends State<AccountScreen>
       letterSpacing: 1.0,
       color: Colors.black,
       wordSpacing: 0.5,
-      
-      //height: 10.0
     );
   }
 
@@ -74,10 +71,7 @@ class _AccountScreenState extends State<AccountScreen>
         settingscard(Icons.lightbulb_outline, "day/night", "day"),
         settingscard(Icons.security, "legal", "read TOS"),
         settingscard(Icons.help_outline, "help", "questions?"),
-        
       ],
     );
-    
-    
   }
 }

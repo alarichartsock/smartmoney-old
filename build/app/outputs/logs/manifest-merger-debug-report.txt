@@ -4,6 +4,7 @@ ADDED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
+MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
@@ -67,6 +68,8 @@ uses-sdk
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
+MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
