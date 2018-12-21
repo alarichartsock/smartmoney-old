@@ -4,7 +4,10 @@ ADDED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
-MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:flutter_local_notifications] C:\Users\iamth\Documents\flutter_projects\moves\build\flutter_local_notifications\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:vibrate] C:\Users\iamth\Documents\flutter_projects\moves\build\vibrate\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\53221bca348d77698421d8fe66566988\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dbfb90f343bd94c99316b0b8c7fe9580\AndroidManifest.xml:17:1-22:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml:1:1-39:12
@@ -68,8 +71,14 @@ uses-sdk
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
-MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:audioplayer] C:\Users\iamth\Documents\flutter_projects\moves\build\audioplayer\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:flutter_local_notifications] C:\Users\iamth\Documents\flutter_projects\moves\build\flutter_local_notifications\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] C:\Users\iamth\Documents\flutter_projects\moves\build\flutter_local_notifications\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-44
+MERGED from [:vibrate] C:\Users\iamth\Documents\flutter_projects\moves\build\vibrate\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:vibrate] C:\Users\iamth\Documents\flutter_projects\moves\build\vibrate\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\53221bca348d77698421d8fe66566988\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\53221bca348d77698421d8fe66566988\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dbfb90f343bd94c99316b0b8c7fe9580\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\iamth\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dbfb90f343bd94c99316b0b8c7fe9580\AndroidManifest.xml:20:5-44
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\iamth\Documents\flutter_projects\moves\android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion

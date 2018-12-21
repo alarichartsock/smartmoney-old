@@ -1,33 +1,13 @@
 import 'package:flutter/material.dart';
-import 'screencomponents/expandedcard.dart';
 import 'screens/accountscreen.dart';
 import 'screens/browse.dart';
-
-TextStyle titleStyle() {
-  return TextStyle(
-    fontSize: 19.0,
-    fontWeight: FontWeight.w500,
-    letterSpacing: 1.5,
-    color: Colors.black,
-    wordSpacing: 0.5,
-  );
-}
-
-TextStyle middleStyle() {
-  return TextStyle(
-    fontSize: 14.5,
-    fontWeight: FontWeight.w400,
-    letterSpacing: 1.0,
-    color: Colors.black,
-    wordSpacing: 0.5,
-  );
-}
-
+import 'screens/watchlist.dart';
+import 'screencomponents/infocard.dart';
 
 class Screen {
   String title;
   final WidgetBuilder contentBuilder;
-  final String icon;
+  final IconData icon;
 
   Screen({
     this.title,
@@ -36,32 +16,27 @@ class Screen {
   });
 }
 
-final Screen browse = new Screen(
+
+final Screen browse = Screen(
   title: "browse",
   contentBuilder: (BuildContext context) {
     return Browse();
   },
-  icon: "search",
+  icon: Icons.search,
 );
 
 //watchlist
 
-final Screen watchlist = new Screen(
+final Screen watchlist = Screen(
     title: "watchlist",
     contentBuilder: (BuildContext context) {
-      return ListView(
-        children: <Widget>[
-          AnimateExpanded(),
-          AnimateExpanded(),
-          AnimateExpanded(),
-        ],
-      );
+      return Watchlist();
     },
-    icon: "add");
+    icon: Icons.add);
 
 //insider moves
 
-final Screen insidermoves = new Screen(
+final Screen insidermoves = Screen(
   title: "insidermoves",
   contentBuilder: (BuildContext context) {
     return ListView(
@@ -72,12 +47,12 @@ final Screen insidermoves = new Screen(
       ],
     );
   },
-  icon: "search",
+  icon: Icons.search,
 );
 
 //account
 
-final Screen settings = new Screen(
+final Screen settings = Screen(
   title: "settings",
   contentBuilder: (BuildContext context) {
     return AccountScreen();

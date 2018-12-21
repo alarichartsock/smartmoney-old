@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
-import 'zoom_scaffold.dart';
-import 'menu.dart';
+import 'zoomscaffold/zoom_scaffold.dart';
+import 'zoomscaffold/menu.dart';
 import 'screens.dart';
+import 'screens/stockinfo.dart';
+import 'screens/watchlist.dart';
+import 'screens/search.dart';
+import 'screencomponents/themes.dart';
 
 void main() {
-  runApp(
-    new MaterialApp(
-    home: Dash(), //entry function
-    title: "Hello",
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(MaterialApp(
+      home: Dash(), //entry function
+      title: "Hello",
+      theme: lightTheme(),
+      debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        "stockdetails": (BuildContext context) => StockDetails(),
+        "dash": (BuildContext context) => Dash(),
+        "search" : (BuildContext context)  => Search(),
+      }));
 }
 
 class Dash extends StatefulWidget {
@@ -18,14 +26,15 @@ class Dash extends StatefulWidget {
 }
 
 class _DashState extends State<Dash> {
-  var activeScreen = browse; //starts on first screen by default
+  var activeScreen = browse;
   var selectedMenuId = '1';
 
-  final menu = Menu(items: [ //main menu on the left
-    MenuItem(id: '1', title: 'browse'), 
+  final menu = Menu(items: [
+
+    MenuItem(id: '1', title: 'browse'),
     MenuItem(id: '2', title: 'watchlist'),
     MenuItem(id: '3', title: 'insiders'),
-    MenuItem(id: '4', title: 'settings')
+    MenuItem(id: '4', title: 'settings'),
   ]);
 
   @override

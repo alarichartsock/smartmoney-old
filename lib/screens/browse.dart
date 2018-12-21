@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:moves/screencomponents/customclipper.dart';
+import 'package:moves/screencomponents/custompainter.dart';
+import 'package:moves/screencomponents/themes.dart';
+import 'package:moves/screencomponents/infocard.dart';
 
 class Browse extends StatefulWidget {
   @override
@@ -6,54 +10,30 @@ class Browse extends StatefulWidget {
 }
 
 class _BrowseState extends State<Browse> {
-  TextStyle titleStyle1() {
-    return TextStyle(
-      fontSize: 19.0,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 1.0,
-      color: Colors.black,
-      wordSpacing: 0.25,
-    );
-  }
-
-  TextStyle titleStyle2() {
-    return TextStyle(
-      fontSize: 19.0,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 1.0,
-      color: Colors.black,
-      wordSpacing: 0.25,
-    );
-  }
-
-  TextStyle middleStyle() {
-    return TextStyle(
-      fontSize: 14.5,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 1.0,
-      color: Colors.black,
-      wordSpacing: 0.5,
-    );
-  }
+  
 
   Widget industryBubble(String title) {
     return Padding(
-        padding: EdgeInsets.fromLTRB(15.0, 10.0, 0.0, 20.0),
+        padding: EdgeInsets.fromLTRB(
+            MediaQuery.of(context).size.width * 0.036, //left
+            MediaQuery.of(context).size.height * 0.0129, //top
+            0.0, //right
+            MediaQuery.of(context).size.width * 0.0486), //bottom
         child: Container(
-            height: 80.0,
-            width: 80.0,
+            height: MediaQuery.of(context).size.width * .103,
+            width: MediaQuery.of(context).size.width * .1944,
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(200.0)),
               elevation: 10.0,
               child: Center(
                 child: Container(
-                  height: 80.0,
-                  width: 80.0,
+                  height: MediaQuery.of(context).size.width * .103,
+                  width: MediaQuery.of(context).size.width * .1944,
                   child: Center(
                     child: Text(
                       title,
-                      style: titleStyle2(),
+                      style: titleStyle1(),
                     ),
                   ),
                 ),
@@ -61,77 +41,49 @@ class _BrowseState extends State<Browse> {
             )));
   }
 
-  Widget infoCard() {
-    return Padding(
-        padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
-        child: Card(
-          elevation: 15.0,
-          child: Container(
-            height: 60.0,
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(10.0, 5.0, 0.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "3.1M Bet Against Apple Inc.",
-                          style: titleStyle2(),
-                        ),
-                        Text(
-                          "12/4/2018 04:00PM",
-                          style: middleStyle(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.transparent,
-                  height: 60.0,
-                  width: 50.0,
-                  alignment: Alignment(0.0, -3.5),
-                  child: IconButton(
-                    icon: Icon(Icons.bookmark),
-                    color: Colors.black,
-                    onPressed: () {
-                      print("save pressed");
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ));
-  }
-
   returnList1() {
     return <Widget>[
-      infoCard(),
-      infoCard(),
-      infoCard(),
-      IconButton(
-        icon: Icon(Icons.more_horiz),
-        iconSize: 35.0,
-        color: Colors.black,
-        onPressed: () {
-          print("More Pressed!");
-        },
+      infoCard(context),
+      infoCard(context),
+      infoCard(context),
+      Stack(
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_horiz),
+            iconSize:
+                35.0, // TODO: scale icons based on mediaquery height and width
+            color: Colors.black,
+            onPressed: () {
+              print("More Pressed!");
+            },
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(
+                MediaQuery.of(context).size.width * 0.034,
+                MediaQuery.of(context).size.height * 0.02839,
+                0.0,
+                0.0),
+            child: Material(
+              color: Colors.transparent,
+              elevation: 7.5,
+              borderRadius: BorderRadius.circular(200.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.009675,
+                width: MediaQuery.of(context).size.width * 0.0559,
+                color: Colors.transparent,
+              ),
+            ),
+          ),
+        ],
       )
     ];
   }
 
   returnList2() {
     return <Widget>[
-      infoCard(),
-      infoCard(),
-      infoCard(),
+      infoCard(context),
+      infoCard(context),
+      infoCard(context),
     ];
   }
 
@@ -140,14 +92,20 @@ class _BrowseState extends State<Browse> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 10.0),
+          padding: EdgeInsets.fromLTRB(
+              MediaQuery.of(context).size.width * 0.09,
+              10.0,
+              0.0,
+              MediaQuery.of(context).size.height * 0.0129),
           child: Text(
             title,
-            style: titleStyle1(),
+            style: titleStyle2(),
           ),
         ),
-        Container(
-          height: 110.0,
+        Padding(
+          padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.047, 0.0, 0.0, 0.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height * .141,
           width: double.infinity,
           child: ListView(
             scrollDirection: Axis.horizontal,
@@ -162,6 +120,7 @@ class _BrowseState extends State<Browse> {
             ],
           ),
         ),
+        ),
       ],
     );
   }
@@ -171,14 +130,17 @@ class _BrowseState extends State<Browse> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 16.0),
+          padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * .09,
+              0.0, 0.0, MediaQuery.of(context).size.height * .020),
           child: Text(
             title,
-            style: titleStyle1(),
+            style: titleStyle2(),
           ),
         ),
         Container(
-          height: (returnList1().length - 1) * 70.0 + 55.0,
+          height: (returnList1().length - 1) *
+                  (MediaQuery.of(context).size.height * .09) +
+              (MediaQuery.of(context).size.height * .07),
           width: double.infinity,
           child: Column(children: returnList1()),
         ),
@@ -193,14 +155,22 @@ class _BrowseState extends State<Browse> {
         Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 16.0),
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * .09,
+                  0.0,
+                  0.0,
+                  MediaQuery.of(context).size.height * .02),
               child: Text(
                 "view all",
-                style: titleStyle1(),
+                style: titleStyle2(),
               ),
             ),
             Padding(
-                padding: EdgeInsets.fromLTRB(265.0, 0.0, 0.0, 16.0),
+                padding: EdgeInsets.fromLTRB(
+                    MediaQuery.of(context).size.width * .55,
+                    0.0,
+                    0.0,
+                    MediaQuery.of(context).size.height * .020),
                 child: IconButton(
                   icon: Icon(Icons.tune),
                   onPressed: () {
@@ -210,7 +180,8 @@ class _BrowseState extends State<Browse> {
           ],
         ),
         Container(
-          height: (returnList2().length) * 70.0,
+          height:
+              (returnList2().length) * (MediaQuery.of(context).size.height * .09),
           width: double.infinity,
           child: Column(children: returnList2()),
         ),
@@ -222,6 +193,51 @@ class _BrowseState extends State<Browse> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
+        Column(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            ClipPath(
+              clipper: CustomShapeClipper(),
+              child: Container(
+                height: 105.0,
+                color: Colors.white,
+                width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(35.0, 0.0, 0.0, 0.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                        child: Text(
+                          "Good morning Alaric",
+                          style: titleStyle3()
+                        ),
+                      ),
+                      Text(
+                        "Here are some odd trades",
+                        style: titleStyle1()
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            CustomPaint(
+                painter: CustomShapePainter(),
+                child: Container(
+                  height: 105.0,
+                  width: double.infinity,
+                ))
+          ],
+        ),
+        Container(
+          color: Colors.transparent,
+        )
+      ],
+    ),
         rowDisplay("industries"),
         columnDisplay("unusual trades"),
         columnDisplay("for you"),
