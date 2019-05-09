@@ -1,4 +1,4 @@
-    ## smartmoney -  what is it?
+## smartmoney -  what is it?
 
 Smartmoney is a cross platform application designed to give investors & stock holders information on legal, published insider trading within a company. This information is currently publicly known but not easily accessed. Smartmoney will publish this to the official Smartmoney app & give shareholders realtime, push notifications for when either a highranking executive sells or a large hedgefund executes an unusually large purchase order.
 
