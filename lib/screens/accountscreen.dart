@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:moves/screencomponents/themes.dart';
 
 class AccountScreen extends StatefulWidget {
   @override
@@ -9,21 +8,36 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen>
     with TickerProviderStateMixin {
+  TextStyle titleStyle() {
+    return TextStyle(
+      fontSize: 19.0,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 1.5,
+      color: Colors.black,
+      wordSpacing: 0.5,
+    );
+  }
+
+  TextStyle middleStyle() {
+    return TextStyle(
+      fontSize: 14.5,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 1.0,
+      color: Colors.black,
+      wordSpacing: 0.5,
+    );
+  }
 
   Widget settingscard(IconData iconType, String cardInfo, String userInfo) {
     return Card(
         child: Container(
-      height: MediaQuery.of(context).size.height * .085,
+      height: 75.0,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * .0243,
-                0.0,
-                MediaQuery.of(context).size.width * .0243,
-                0.0),
+            padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
             child: Icon(
               iconType,
               size: 32.0,
@@ -32,12 +46,11 @@ class _AccountScreenState extends State<AccountScreen>
           Expanded(
             child: Text(
               cardInfo,
-              style: titleStyle1(),
+              style: titleStyle(),
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(
-                0.0, 0.0, MediaQuery.of(context).size.width * .0243, 0.0),
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
             child: Text(
               userInfo,
               style: middleStyle(),
