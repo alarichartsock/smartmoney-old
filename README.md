@@ -7,7 +7,4 @@ Smartmoney is a cross platform application designed to give investors & stock ho
 Moves will operate on a freemium software as a service basis, with a low monthly subscription (3-8$), and possibly a multiple tiered system. This part is highly open to revision & will only be thought over once the initial app is competed.
 
 ## technical
-
-We will design a relatively simple UI for Smartmoney, & import information via json. Will possibly bring new talent onto the project to make this more seamless. 
-=======
 We will design a relatively simple UI for moves, & import information via json. Will possibly bring new talent onto the project to make this more seamless. 
